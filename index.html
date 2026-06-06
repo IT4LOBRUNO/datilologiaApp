@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alfabeto em Datilologia - LIBRAS</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div class="game-container">
+    <div class="header">
+      <h1>Alfabeto em Datilologia</h1>
+      <p>Aprenda o alfabeto em LIBRAS</p>
+    </div>
+
+    <div class="status loading" id="loadingStatus">
+      Carregando dados do banco...
+    </div>
+
+    <div class="game-area" id="gameArea">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="word-image">
+        <img
+          id="wordImage"
+          src="https://static.wixstatic.com/media/4c4f66_4f95bd69c7824642be9f35c7870744ab~mv2.png/v1/fill/w_980,h_980,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c4f66_4f95bd69c7824642be9f35c7870744ab~mv2.png"
+          alt="Palavra"
+        />
+      </div>
+
+      <div class="letters-container" id="lettersContainer"></div>
+
+      <div class="video-container">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="output_canvas"></canvas>
+        <div class="current-target" id="currentTarget">?</div>
+        <div class="debug-info" id="debugInfo"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-primary" id="startBtn">Iniciar</button>
+        <button class="btn btn-danger" id="stopBtn" style="display:none;">Parar</button>
+      </div>
+    </div>
+
+    <div class="celebration" id="celebration">
+      <h2>Parabéns</h2>
+      <p>Você completou a palavra</p>
+      <button class="btn btn-success" id="nextWordBtn">Próxima Palavra</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script type="module" src="index.js"></script>
+</body>
+</html>

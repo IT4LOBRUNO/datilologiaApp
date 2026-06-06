@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cadastro de Palavras</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin - Aplicação de Datilologia</h1>
+        <p class="subtitle">Cadastre palavras e imagens para o jogo</p>
+
+        <form id="wordForm">
+            <div class="form-group">
+                <label for="wordInput">Palavra:</label>
+                <input
+                    type="text"
+                    id="wordInput"
+                    placeholder="Ex: LINGUA"
+                    required
+                    pattern="[A-Za-z]+"
+                    title="Apenas letras"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Imagem Ilustrativa:</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageInput" accept="image/*" required>
+                    <label for="imageInput" class="file-input-label" id="fileLabel">
+                        Clique para selecionar uma imagem
+                    </label>
+                </div>
+                <div class="preview-image" id="previewContainer">
+                    <img id="previewImage" src="" alt="Preview">
+                </div>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">Cadastrar Palavra</button>
+        </form>
+
+        <div class="status" id="status"></div>
+
+        <div class="word-list">
+            <h2>Palavras Cadastradas (<span id="wordCount">0</span>)</h2>
+            <div id="wordListContainer"></div>
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

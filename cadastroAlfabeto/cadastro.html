@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alfabeto - Datilologia</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cadastro de Alfabeto</h1>
+            <p>Cadastre os 26 sinais de datilologia (A-Z)</p>
+        </div>
+
+        <div class="content">
+            <div class="progress-info">
+                <strong id="progressCount">0/26</strong> letras cadastradas
+            </div>
+
+            <div class="alphabet-grid" id="alphabetGrid"></div>
+
+            <div class="capture-area" id="captureArea">
+                <div class="current-letter">
+                    <h2 id="currentLetterDisplay">A</h2>
+                    <p>Faça o sinal da letra e clique em "Iniciar Capturas"</p>
+                    <div id="captureProgress"></div>
+                </div>
+
+                <div id="sampleCounter"></div>
+
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay playsinline muted></video>
+                    <canvas id="output_canvas"></canvas>
+                </div>
+
+                <div class="capture-controls">
+                    <button class="btn btn-success" id="captureBtn" disabled>Iniciar 5 Capturas</button>
+                    <button class="btn btn-danger" id="cancelBtn">Cancelar</button>
+                </div>
+
+                <div class="status" id="captureStatus" style="display:none;"></div>
+            </div>
+
+            <div class="file-upload-section">
+                <h3>Upload de Imagens Ilustrativas</h3>
+                <p style="color: #666; margin-bottom: 15px;">
+                    Faça upload de imagens PNG das letras (A.png, B.png, etc.)
+                </p>
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageUpload" accept="image/*" multiple>
+                    <label for="imageUpload" class="file-input-label">
+                        Selecionar Imagens (A.png, B.png, etc.)
+                    </label>
+                </div>
+                <div class="preview-grid" id="previewGrid"></div>
+                <button class="btn btn-primary" id="uploadImagesBtn" style="display:none; margin-top: 15px;">
+                    Salvar Imagens no Banco
+                </button>
+            </div>
+
+            <div class="status info" style="margin-top: 20px;">
+                <strong>Dica:</strong> Serão feitas 5 capturas de 2 segundos cada. Mantenha a mão estável em cada uma para maior precisão.<br>
+                Mude um pouco o ângulo da mão em cada captura.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script type="module" src="cadastro.js"></script>
+</body>
+</html>
